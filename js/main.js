@@ -10,6 +10,8 @@
   const taskbarApps = document.getElementById('taskbar-apps');
   const windows   = Array.from(document.querySelectorAll('.window'));
   const icons     = Array.from(document.querySelectorAll('.icon'));
+  const topNav    = Array.from(document.querySelectorAll('.topbar__nav button'));
+  const topClock  = document.getElementById('topbar-clock');
 
   let highestZ = 10;
   let activeId = null;
@@ -131,6 +133,22 @@
     if (activeId === id) activeId = null;
   }
 
+  function toggleMaximize(id) {
+    const win = document.getElementById(id);
+    if (!win) return;
+    const isMax = win.classList.toggle('is-maximized');
+    if (isMax) {
+      win.dataset.prevLeft = win.style.left; win.dataset.prevTop = win.style.top;
+      win.dataset.prevWidth = win.style.width; win.dataset.prevHeight = win.style.height;
+      win.style.left = '14px'; win.style.top = '72px'; win.style.width = 'calc(100vw - 28px)'; win.style.height = 'calc(100vh - 130px)';
+    } else {
+      win.style.left = win.dataset.prevLeft || ''; win.style.top = win.dataset.prevTop || '';
+      win.style.width = win.dataset.prevWidth || ''; win.style.height = win.dataset.prevHeight || '';
+      clampToViewport(win);
+    }
+    bringToFront(win);
+  }
+
   function toggleMinimize(id) {
     const win = document.getElementById(id);
     const s = state[id];
@@ -218,6 +236,8 @@
   }
 
   /* ---------------- Wire up events ---------------- */
+  topNav.forEach(btn => btn.addEventListener('click', () => openWindow(btn.dataset.target, btn)));
+
   icons.forEach(icon => {
     icon.addEventListener('click', () => openWindow(icon.dataset.target, icon));
     icon.addEventListener('keydown', e => {
@@ -233,6 +253,8 @@
     const header = win.querySelector('.window-header');
     header.addEventListener('mousedown', e => dragStart(e, win));
     header.addEventListener('touchstart', e => dragStart(e, win), { passive: true });
+    win.querySelector('.minimize-btn').addEventListener('click', e => { e.stopPropagation(); toggleMinimize(win.id); });
+    win.querySelector('.maximize-btn').addEventListener('click', e => { e.stopPropagation(); toggleMaximize(win.id); });
     win.querySelector('.close-btn').addEventListener('click', e => {
       e.stopPropagation();
       closeWindow(win.id);
@@ -260,7 +282,9 @@
 
   function tick() {
     const now = new Date();
-    clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const formatted = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    clockEl.textContent = formatted;
+    if (topClock) topClock.textContent = formatted;
     const secs = Math.floor((Date.now() - bootTime) / 1000);
     const h = pad(Math.floor(secs / 3600));
     const m = pad(Math.floor((secs % 3600) / 60));

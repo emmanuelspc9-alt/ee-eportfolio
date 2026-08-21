@@ -21,7 +21,13 @@
 
   <div id="crt-overlay" aria-hidden="true"></div>
 
-  <main id="desktop">
+  <div class="topbar" aria-label="System navigation">
+  <div class="topbar__brand"><span class="brand-mark">EB</span><strong>EMMANUEL BASUA</strong><span class="topbar__crumb">/ PORTFOLIO.OS</span></div>
+  <nav class="topbar__nav"><button data-target="about-win">About</button><button data-target="projects-win">Work</button><button data-target="skills-win">Stack</button><button data-target="contact-win">Contact</button></nav>
+  <div class="topbar__meta"><span class="status-pip"></span><span>ONLINE</span><span class="topbar__time" id="topbar-clock">00:00</span></div>
+</div>
+
+<main id="desktop">
     <section class="hero-panel">
       <div class="hero-copy">
         <div class="eyebrow"><span class="live-dot"></span> ELECTRICAL &amp; COMPUTER ENGINEERING</div>
@@ -56,7 +62,7 @@
         <div class="window-header__id">
           <span class="window-app-icon"><i data-lucide="user-round"></i></span><span><small>01 / PROFILE</small><span class="title">About Emmanuel</span></span>
         </div>
-        <button class="close-btn" data-close="about-win" aria-label="Close About"><i data-lucide="x"></i></button>
+        <div class="window-controls"><button class="window-btn minimize-btn" aria-label="Minimize About"><i data-lucide="minus"></i></button><button class="window-btn maximize-btn" aria-label="Maximize About"><i data-lucide="maximize-2"></i></button><button class="close-btn" data-close="about-win" aria-label="Close About"><i data-lucide="x"></i></button></div>
       </header>
       <div class="window-body">
         <div class="stamp">EB‑001</div>
@@ -81,7 +87,7 @@
         <div class="window-header__id">
           <span class="window-app-icon purple"><i data-lucide="cpu"></i></span><span><small>02 / TOOLSET</small><span class="title">Engineering Stack</span></span>
         </div>
-        <button class="close-btn" data-close="skills-win" aria-label="Close Toolset"><i data-lucide="x"></i></button>
+        <div class="window-controls"><button class="window-btn minimize-btn" aria-label="Minimize Toolset"><i data-lucide="minus"></i></button><button class="window-btn maximize-btn" aria-label="Maximize Toolset"><i data-lucide="maximize-2"></i></button><button class="close-btn" data-close="skills-win" aria-label="Close Toolset"><i data-lucide="x"></i></button></div>
       </header>
       <div class="window-body mono">
         <p class="prompt">$ ./list_skills.sh</p>
@@ -103,7 +109,7 @@
         <div class="window-header__id">
           <span class="window-app-icon orange"><i data-lucide="layers-3"></i></span><span><small>03 / PROJECTS</small><span class="title">Selected Work</span></span>
         </div>
-        <button class="close-btn" data-close="projects-win" aria-label="Close Projects"><i data-lucide="x"></i></button>
+        <div class="window-controls"><button class="window-btn minimize-btn" aria-label="Minimize Projects"><i data-lucide="minus"></i></button><button class="window-btn maximize-btn" aria-label="Maximize Projects"><i data-lucide="maximize-2"></i></button><button class="close-btn" data-close="projects-win" aria-label="Close Projects"><i data-lucide="x"></i></button></div>
       </header>
       <div class="window-body">
         <article class="card card--feature">
@@ -134,7 +140,7 @@
         <div class="window-header__id">
           <span class="window-app-icon green"><i data-lucide="route"></i></span><span><small>04 / RECORD</small><span class="title">Experience &amp; Achievements</span></span>
         </div>
-        <button class="close-btn" data-close="experience-win" aria-label="Close Record"><i data-lucide="x"></i></button>
+        <div class="window-controls"><button class="window-btn minimize-btn" aria-label="Minimize Record"><i data-lucide="minus"></i></button><button class="window-btn maximize-btn" aria-label="Maximize Record"><i data-lucide="maximize-2"></i></button><button class="close-btn" data-close="experience-win" aria-label="Close Record"><i data-lucide="x"></i></button></div>
       </header>
       <div class="window-body">
         <h3>Experience</h3>
@@ -159,7 +165,7 @@
         <div class="window-header__id">
           <span class="window-app-icon pink"><i data-lucide="sparkles"></i></span><span><small>05 / CONTACT</small><span class="title">Let’s build something</span></span>
         </div>
-        <button class="close-btn" data-close="contact-win" aria-label="Close Contact"><i data-lucide="x"></i></button>
+        <div class="window-controls"><button class="window-btn minimize-btn" aria-label="Minimize Contact"><i data-lucide="minus"></i></button><button class="window-btn maximize-btn" aria-label="Maximize Contact"><i data-lucide="maximize-2"></i></button><button class="close-btn" data-close="contact-win" aria-label="Close Contact"><i data-lucide="x"></i></button></div>
       </header>
       <div class="window-body">
         <p class="contact-intro">Get in touch for engineering projects or inquiries:</p>
