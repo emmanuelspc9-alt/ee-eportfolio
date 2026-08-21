@@ -130,3 +130,48 @@
 .project-specs-standard small{display:block;margin-bottom:5px;color:#7e888c;font:8px var(--mono);letter-spacing:.12em}
 .project-specs-standard strong{display:block;font:500 11px/1.45 var(--mono);color:#d8dddc}
 @media(max-width:900px){.project-details-standard{grid-template-columns:1fr}.project-specs-standard{border-left:0;border-top:1px solid var(--line);padding:20px 0 0;margin-top:0}.project-specs-standard>div{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start}.project-specs-standard small{margin:3px 0 0}}
+.project-art {
+  position: relative;
+  overflow: hidden;
+  display: flex; /* Ensures overlays stack properly */
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents image distortion */
+  display: block;
+}
+
+/* Ensure existing overlay elements sit above the image */
+.telemetry,
+.art-label {
+  position: absolute;
+  z-index: 2;
+}.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Handles CDN <img> logos */
+img.skill-logo {
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff; /* Forces logo color to white */
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Handles inline <svg> logos */
+svg.skill-logo {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff; /* Sets vector path fill to white */
+  stroke: #ffffff; /* For stroke-based wave lines */
+  stroke-width: 1.5;
+}
