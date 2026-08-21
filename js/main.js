@@ -19,7 +19,6 @@ function bringToFront(win) {
   win.style.zIndex = highestZIndex;
 }
 
-// Window Dragging Logic
 function dragStart(e, id) {
   const win = document.getElementById(id);
   bringToFront(win);
@@ -44,7 +43,6 @@ function dragEnd() {
   document.removeEventListener('mouseup', dragEnd);
 }
 
-// Clock updates
 function updateClock() {
   const now = new Date();
   const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });

@@ -3,59 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desktop Portfolio</title>
+  <title>Emmanuel Basua — Electrical Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="desktop">
     <!-- Desktop Icons -->
-    <div class="icon" onclick="openWindow('projects-win')">
-      <div class="icon-img">📁</div>
-      <span>Projects</span>
-    </div>
     <div class="icon" onclick="openWindow('about-win')">
       <div class="icon-img">📝</div>
       <span>About.txt</span>
     </div>
-
-    <!-- Window: Projects -->
-    <div id="projects-win" class="window">
-      <div class="window-header" onmousedown="dragStart(event, 'projects-win')">
-        <span class="title">File Explorer - Projects</span>
-        <button class="close-btn" onclick="closeWindow('projects-win')">✕</button>
-      </div>
-      <div class="window-body">
-        <h3>My Work</h3>
-        <p>Double click or select an item to view details.</p>
-        <div class="app-grid">
-          <div class="app-card">
-            <h4>Embedded OS Core</h4>
-            <p>Custom C implementation for microcontrollers.</p>
-          </div>
-          <div class="app-card">
-            <h4>Signal Processor</h4>
-            <p>MATLAB / Python acoustic telemetry module.</p>
-          </div>
-        </div>
-      </div>
+    <div class="icon" onclick="openWindow('skills-win')">
+      <div class="icon-img">💻</div>
+      <span>Toolset.sh</span>
+    </div>
+    <div class="icon" onclick="openWindow('projects-win')">
+      <div class="icon-img">📁</div>
+      <span>Projects</span>
+    </div>
+    <div class="icon" onclick="openWindow('experience-win')">
+      <div class="icon-img">📜</div>
+      <span>Record.log</span>
+    </div>
+    <div class="icon" onclick="openWindow('contact-win')">
+      <div class="icon-img">📬</div>
+      <span>Contact</span>
     </div>
 
     <!-- Window: About -->
     <div id="about-win" class="window">
       <div class="window-header" onmousedown="dragStart(event, 'about-win')">
-        <span class="title">Notepad - About.txt</span>
+        <span class="title">Notepad — DWG NO. EB-001</span>
         <button class="close-btn" onclick="closeWindow('about-win')">✕</button>
       </div>
       <div class="window-body">
-        <p>Hello! Welcome to my desktop portfolio environment.</p>
-        <p>Use the icons to explore my work and technical projects.</p>
+        <h2>Emmanuel Basua</h2>
+        <p class="role">Electrical & Computer Engineering — University of Cape Town</p>
+        <p class="desc">I design closed-loop systems where the hard part is the sensor, not the algorithm — gyro-stabilised navigation, acoustic communication, and telemetry, drafted first on paper and proven on the bench.</p>
+        <hr>
+        <div class="facts">
+          <p><strong>Location:</strong> Kenilworth, Cape Town</p>
+          <p><strong>Focus:</strong> Embedded systems / signals</p>
+          <p><strong>Enrolled:</strong> 2023 – present</p>
+        </div>
+        <a href="assets/emmanuel-basua-cv.pdf" class="btn" download>Download CV</a>
+      </div>
+    </div>
+
+    <!-- Window: Skills -->
+    <div id="skills-win" class="window">
+      <div class="window-header" onmousedown="dragStart(event, 'skills-win')">
+        <span class="title">Terminal — 02 Toolset</span>
+        <button class="close-btn" onclick="closeWindow('skills-win')">✕</button>
+      </div>
+      <div class="window-body mono">
+        <p class="prompt">$ ./list_skills.sh</p>
+        <div class="skill-row"><span>C / Microcontrollers</span><span class="bar">[█████████░] 90%</span></div>
+        <div class="skill-row"><span>MATLAB / Simulink</span><span class="bar">[█████████░] 90%</span></div>
+        <div class="skill-row"><span>KiCad</span><span class="bar">[████████░░] 85%</span></div>
+        <div class="skill-row"><span>SolidWorks</span><span class="bar">[█████████▉] 95%</span></div>
+        <div class="skill-row"><span>Python / Java / Linux</span><span class="bar">[████████░░] 85%</span></div>
+        <div class="skill-row"><span>Assembly — MIPS</span><span class="bar">[████████░░] 85%</span></div>
+        <div class="skill-row"><span>Assembly — ARM</span><span class="bar">[██████░░░░] 60%</span></div>
+        <div class="skill-row"><span>Soldering</span><span class="bar">[█████████▉] 95%</span></div>
+      </div>
+    </div>
+
+    <!-- Window: Projects -->
+    <div id="projects-win" class="window window-lg">
+      <div class="window-header" onmousedown="dragStart(event, 'projects-win')">
+        <span class="title">File Explorer — Selected Work</span>
+        <button class="close-btn" onclick="closeWindow('projects-win')">✕</button>
+      </div>
+      <div class="window-body">
+        <div class="card card--feature">
+          <span class="card__ref">Featured — Micromouse</span>
+          <h3>Gyro-Enhanced Micromouse Trajectory Following</h3>
+          <p>Closed-loop navigation combining ICM-20602 gyroscope heading control (100Hz, 2° accuracy) with VL53L1X ToF wall detection for centreline correction. Zero-velocity-update bias compensation and proportional turn control, validated across Simstruct maze trials with varied wheel bias.</p>
+          <div class="tags"><span>MATLAB/Simulink</span><span>Sensor Fusion</span><span>Closed-loop Control</span></div>
+          <video controls preload="none"><source src="assets/micromouse-demo.mp4" type="video/mp4"></video>
+        </div>
+        <div class="card">
+          <span class="card__ref">AUV Comms</span>
+          <h3>AUV Acoustic Communication System</h3>
+          <p>Chirp-FSK acoustic link for Antarctic under-ice AUV positioning, developed for EEE4113F.</p>
+          <div class="tags"><span>Chirp-FSK</span><span>Embedded C</span></div>
+        </div>
+        <div class="card">
+          <span class="card__ref">Ground Station</span>
+          <h3>Rocket Telemetry Ground Station</h3>
+          <p>ESP32 flight-side transmitter, Raspberry Pi ground receiver, live Flask dashboard for telemetry.</p>
+          <div class="tags"><span>ESP32</span><span>Raspberry Pi</span><span>Flask</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Window: Experience -->
+    <div id="experience-win" class="window">
+      <div class="window-header" onmousedown="dragStart(event, 'experience-win')">
+        <span class="title">Log — 04 Record</span>
+        <button class="close-btn" onclick="closeWindow('experience-win')">✕</button>
+      </div>
+      <div class="window-body">
+        <h3>Experience</h3>
+        <div class="exp"><span class="yr">2025</span><div><strong>Embedded Systems Tutor — UCT</strong><p>Digital logic and microcontroller programming in C.</p></div></div>
+        <div class="exp"><span class="yr">2024</span><div><strong>Engineering Design Tutor — UCT</strong><p>PCB design in KiCad, intro engineering design course.</p></div></div>
+        <div class="exp"><span class="yr">2024</span><div><strong>UCT Formula One Team — Electrical</strong><p>Researched the Brake System Plausibility Device and Brake Over Travel Switch.</p></div></div>
+        <div class="exp"><span class="yr">2023–</span><div><strong>SHAWCO Volunteer</strong><p>Digital literacy teaching in Khayelitsha and Langa.</p></div></div>
+        <hr>
+        <h3>Achievements</h3>
+        <ul class="achv">
+          <li><strong>Dean's Merit List</strong> — UCT 2024 (Embedded Systems I & II)</li>
+          <li><strong>DUX Scholar</strong> — Pretoria Technical HS, 2021</li>
+          <li><strong>Provincial Colours (Debating)</strong> — Gauteng, 2018</li>
+          <li><strong>Provincial Colours (Chess)</strong> — Gauteng, 2019</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Window: Contact -->
+    <div id="contact-win" class="window">
+      <div class="window-header" onmousedown="dragStart(event, 'contact-win')">
+        <span class="title">Contact — Emmanuel Basua</span>
+        <button class="close-btn" onclick="closeWindow('contact-win')">✕</button>
+      </div>
+      <div class="window-body">
+        <p>Get in touch for engineering projects or inquiries:</p>
+        <div class="contact-list">
+          <a href="mailto:basua857@gmail.com"><span>Email</span> <strong>basua857@gmail.com</strong></a>
+          <a href="tel:+27671600924"><span>Phone</span> <strong>+27 671 600 924</strong></a>
+          <a href="#" target="_blank"><span>LinkedIn</span> <strong>/in/emmanuelbasua</strong></a>
+          <a href="#" target="_blank"><span>GitHub</span> <strong>/emmanuelbasua</strong></a>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Bottom Taskbar -->
   <div id="taskbar">
-    <button class="start-btn">Start</button>
+    <button class="start-btn">E. Basua — EE</button>
     <div class="time" id="clock">00:00</div>
   </div>
 
