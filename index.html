@@ -95,6 +95,12 @@
           <div class="detail-pane" data-pane="approach"><ul><li>Binary linear chirp-FSK: upchirps and downchirps encode digital symbols across a 1–5 kHz band</li><li>MATLAB waveform and BER testing, with a 0.3 s chirp, Tukey windowing and spectral pre-emphasis</li><li>Sallen–Key Butterworth analogue band-pass filter to suppress out-of-band noise before the ADC</li><li>Matched filtering for packet detection, followed by GCC-PHAT / IR-GCC-PHAT correlation for arrival-time estimation</li><li>Real-time C firmware architecture targeting embedded acquisition and decoding without offloading computation</li></ul></div>
           <div class="detail-pane" data-pane="outcomes"><p>The design validated the core communication chain in simulation and hardware tests: chirp energy was confined to the target band with zero BER in the reported noisy trials, timing correlation met the required accuracy in simulation, and the analogue filter achieved more than 20 dB out-of-band attenuation.</p><p>The resulting architecture provides a practical path from acoustic waveform design to timestamp generation for TDOA-based AUV positioning.</p></div>
         </div>
+        <aside class="project-specs project-specs-standard">
+          <div><small>PLATFORM</small><strong>Custom PCB / STM32F303</strong></div>
+          <div><small>SENSORS</small><strong>Hydrophone Array</strong></div>
+          <div><small>SOFTWARE</small><strong>Embedded C / DSP Algorithms</strong></div>
+          <div><small>TOOLS</small><strong>STM32CubeIDE / MATLAB</strong></div>
+        </aside>
       </div></div></article>
     <article class="project"><div class="project-art art-rocket"><div class="rocket-line">↑</div><div class="telemetry">ALT 482m<br>BAT 3.82V<br>GPS LOCK</div><span class="art-label">LIVE TELEMETRY</span></div><div class="project-content"><div class="project-top"><span>ROCKET / GROUND STATION</span><b>03</b></div><h3>Rocket Telemetry</h3><p>ESP32 flight transmitter, Raspberry Pi receiver and a live Flask dashboard for telemetry.</p><div class="tags"><span>ESP32</span><span>Raspberry Pi</span><span>Flask</span></div><button class="project-link expand-project" type="button" aria-expanded="false">View project <span>↘</span></button>
       <div class="project-details project-details-standard">
@@ -105,6 +111,12 @@
           <div class="detail-pane" data-pane="approach"><ul><li>ESP32 flight computer publishes sensor, GPS and system-status telemetry as compact JSON messages</li><li>Raspberry Pi 4 acts as the portable ground-station computer, Wi-Fi access point and MQTT host</li><li>Mosquitto provides the message layer, with the ground application subscribing across the rocket telemetry topic tree</li><li>Flask and Socket.IO push live updates to connected browsers without manual page refreshes</li><li>Dashboard surfaces live altitude, velocity, acceleration, orientation, battery data, GPS mapping, flight events and rolling history</li><li>Incoming telemetry is logged for later analysis, with the architecture designed to start automatically for field use</li></ul></div>
           <div class="detail-pane" data-pane="outcomes"><p>A complete embedded-to-browser telemetry workflow with a clearly defined message architecture and portable ground station. The system was designed to handle concurrent messaging, live visualisation and data logging while keeping the operator interface simple during testing.</p><p>The project established a reusable avionics/ground-station foundation that can be extended as additional sensors and flight features are integrated.</p></div>
         </div>
+        <aside class="project-specs project-specs-standard">
+          <div><small>PLATFORM</small><strong>ESP32 + Raspberry Pi 4</strong></div>
+          <div><small>SENSORS</small><strong>GPS / IMU / Barometer</strong></div>
+          <div><small>SOFTWARE</small><strong>C / Python / Flask / JS</strong></div>
+          <div><small>TOOLS</small><strong>PlatformIO / VS Code / Git</strong></div>
+        </aside>
       </div></div></article>
   </div>
 </section>
