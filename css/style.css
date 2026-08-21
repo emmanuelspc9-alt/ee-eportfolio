@@ -143,6 +143,11 @@
   display: block;
 }
 
+/* Flip the rocket photo horizontally */
+.art-rocket .project-img {
+  transform: scaleX(-1);
+}
+
 /* Ensure existing overlay elements sit above the image */
 .telemetry,
 .art-label {
