@@ -4,147 +4,187 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emmanuel Basua — Electrical Engineering Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Emmanuel Basua — Electrical &amp; Computer Engineering, University of Cape Town. Embedded systems, sensor fusion and closed-loop control.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2314181D'/%3E%3Crect x='11' y='11' width='10' height='10' fill='none' stroke='%232B4C7E' stroke-width='2'/%3E%3Cpath d='M16 4v7M16 21v7M4 16h7M21 16h7' stroke='%232B4C7E' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="desktop">
-    <!-- Desktop Icons -->
-    <div class="icon" onclick="openWindow('about-win')">
-      <div class="icon-img">📝</div>
-      <span>About.txt</span>
-    </div>
-    <div class="icon" onclick="openWindow('skills-win')">
-      <div class="icon-img">💻</div>
-      <span>Toolset.sh</span>
-    </div>
-    <div class="icon" onclick="openWindow('projects-win')">
-      <div class="icon-img">📁</div>
-      <span>Projects</span>
-    </div>
-    <div class="icon" onclick="openWindow('experience-win')">
-      <div class="icon-img">📜</div>
-      <span>Record.log</span>
-    </div>
-    <div class="icon" onclick="openWindow('contact-win')">
-      <div class="icon-img">📬</div>
-      <span>Contact</span>
+
+  <!-- Boot sequence -->
+  <div id="boot" aria-hidden="true">
+    <div id="boot-lines" class="mono"></div>
+    <div class="boot-bar"><div class="boot-bar__fill" id="boot-fill"></div></div>
+  </div>
+
+  <div id="crt-overlay" aria-hidden="true"></div>
+
+  <main id="desktop">
+    <!-- Desktop icons -->
+    <div class="icon-grid" role="menu" aria-label="Applications">
+      <button class="icon" data-target="about-win" style="--i:0">
+        <span class="icon-img" aria-hidden="true">📝</span>
+        <span class="icon-label">About.txt</span>
+      </button>
+      <button class="icon" data-target="skills-win" style="--i:1">
+        <span class="icon-img" aria-hidden="true">💻</span>
+        <span class="icon-label">Toolset.sh</span>
+      </button>
+      <button class="icon" data-target="projects-win" style="--i:2">
+        <span class="icon-img" aria-hidden="true">📁</span>
+        <span class="icon-label">Projects</span>
+      </button>
+      <button class="icon" data-target="experience-win" style="--i:3">
+        <span class="icon-img" aria-hidden="true">📜</span>
+        <span class="icon-label">Record.log</span>
+      </button>
+      <button class="icon" data-target="contact-win" style="--i:4">
+        <span class="icon-img" aria-hidden="true">📬</span>
+        <span class="icon-label">Contact</span>
+      </button>
     </div>
 
     <!-- Window: About -->
-    <div id="about-win" class="window">
-      <div class="window-header" onmousedown="dragStart(event, 'about-win')">
-        <span class="title">Notepad — DWG NO. EB-001</span>
-        <button class="close-btn" onclick="closeWindow('about-win')">✕</button>
-      </div>
+    <section id="about-win" class="window" data-app="about-win" aria-label="About">
+      <header class="window-header">
+        <div class="window-header__id">
+          <span class="led"></span>
+          <span class="title">Notepad — DWG NO. EB-001</span>
+        </div>
+        <button class="close-btn" data-close="about-win" aria-label="Close About">⊗</button>
+      </header>
       <div class="window-body">
+        <div class="stamp">EB‑001</div>
         <h2>Emmanuel Basua</h2>
-        <p class="role">Electrical & Computer Engineering — University of Cape Town</p>
+        <p class="role">Electrical &amp; Computer Engineering — University of Cape Town</p>
         <p class="desc">I design closed-loop systems where the hard part is the sensor, not the algorithm — gyro-stabilised navigation, acoustic communication, and telemetry, drafted first on paper and proven on the bench.</p>
         <hr>
         <div class="facts">
-          <p><strong>Location:</strong> Kenilworth, Cape Town</p>
-          <p><strong>Focus:</strong> Embedded systems / signals</p>
-          <p><strong>Enrolled:</strong> 2023 – present</p>
+          <p><strong>Location</strong><span>Kenilworth, Cape Town</span></p>
+          <p><strong>Focus</strong><span>Embedded systems / signals</span></p>
+          <p><strong>Enrolled</strong><span>2023 – present</span></p>
         </div>
-        <a href="assets/emmanuel-basua-cv.pdf" class="btn" download>Download CV</a>
+        <a href="assets/emmanuel-basua-cv.pdf" class="btn" download>
+          <span>Download CV</span><span class="btn__arrow">↓</span>
+        </a>
       </div>
-    </div>
+    </section>
 
     <!-- Window: Skills -->
-    <div id="skills-win" class="window">
-      <div class="window-header" onmousedown="dragStart(event, 'skills-win')">
-        <span class="title">Terminal — 02 Toolset</span>
-        <button class="close-btn" onclick="closeWindow('skills-win')">✕</button>
-      </div>
+    <section id="skills-win" class="window" data-app="skills-win" aria-label="Toolset">
+      <header class="window-header">
+        <div class="window-header__id">
+          <span class="led"></span>
+          <span class="title">Terminal — 02 Toolset</span>
+        </div>
+        <button class="close-btn" data-close="skills-win" aria-label="Close Toolset">⊗</button>
+      </header>
       <div class="window-body mono">
         <p class="prompt">$ ./list_skills.sh</p>
-        <div class="skill-row"><span>C / Microcontrollers</span><span class="bar">[█████████░] 90%</span></div>
-        <div class="skill-row"><span>MATLAB / Simulink</span><span class="bar">[█████████░] 90%</span></div>
-        <div class="skill-row"><span>KiCad</span><span class="bar">[████████░░] 85%</span></div>
-        <div class="skill-row"><span>SolidWorks</span><span class="bar">[█████████▉] 95%</span></div>
-        <div class="skill-row"><span>Python / Java / Linux</span><span class="bar">[████████░░] 85%</span></div>
-        <div class="skill-row"><span>Assembly — MIPS</span><span class="bar">[████████░░] 85%</span></div>
-        <div class="skill-row"><span>Assembly — ARM</span><span class="bar">[██████░░░░] 60%</span></div>
-        <div class="skill-row"><span>Soldering</span><span class="bar">[█████████▉] 95%</span></div>
+        <div class="skill-row" style="--pct:90"><span>C / Microcontrollers</span><span class="bar"><i></i></span><span class="pct">90%</span></div>
+        <div class="skill-row" style="--pct:90"><span>MATLAB / Simulink</span><span class="bar"><i></i></span><span class="pct">90%</span></div>
+        <div class="skill-row" style="--pct:85"><span>KiCad</span><span class="bar"><i></i></span><span class="pct">85%</span></div>
+        <div class="skill-row" style="--pct:95"><span>SolidWorks</span><span class="bar"><i></i></span><span class="pct">95%</span></div>
+        <div class="skill-row" style="--pct:85"><span>Python / Java / Linux</span><span class="bar"><i></i></span><span class="pct">85%</span></div>
+        <div class="skill-row" style="--pct:85"><span>Assembly — MIPS</span><span class="bar"><i></i></span><span class="pct">85%</span></div>
+        <div class="skill-row" style="--pct:60"><span>Assembly — ARM</span><span class="bar"><i></i></span><span class="pct">60%</span></div>
+        <div class="skill-row" style="--pct:95"><span>Soldering</span><span class="bar"><i></i></span><span class="pct">95%</span></div>
+        <p class="prompt prompt--end">$ <span class="cursor">_</span></p>
       </div>
-    </div>
+    </section>
 
     <!-- Window: Projects -->
-    <div id="projects-win" class="window window-lg">
-      <div class="window-header" onmousedown="dragStart(event, 'projects-win')">
-        <span class="title">File Explorer — Selected Work</span>
-        <button class="close-btn" onclick="closeWindow('projects-win')">✕</button>
-      </div>
+    <section id="projects-win" class="window window-lg" data-app="projects-win" aria-label="Projects">
+      <header class="window-header">
+        <div class="window-header__id">
+          <span class="led"></span>
+          <span class="title">File Explorer — Selected Work</span>
+        </div>
+        <button class="close-btn" data-close="projects-win" aria-label="Close Projects">⊗</button>
+      </header>
       <div class="window-body">
-        <div class="card card--feature">
+        <article class="card card--feature">
           <span class="card__ref">Featured — Micromouse</span>
           <h3>Gyro-Enhanced Micromouse Trajectory Following</h3>
-          <p>Closed-loop navigation combining ICM-20602 gyroscope heading control (100Hz, 2° accuracy) with VL53L1X ToF wall detection for centreline correction. Zero-velocity-update bias compensation and proportional turn control, validated across Simstruct maze trials with varied wheel bias.</p>
+          <p>Closed-loop navigation combining ICM-20602 gyroscope heading control (100&nbsp;Hz, 2° accuracy) with VL53L1X ToF wall detection for centreline correction. Zero-velocity-update bias compensation and proportional turn control, validated across Simstruct maze trials with varied wheel bias.</p>
           <div class="tags"><span>MATLAB/Simulink</span><span>Sensor Fusion</span><span>Closed-loop Control</span></div>
           <video controls preload="none"><source src="assets/micromouse-demo.mp4" type="video/mp4"></video>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
           <span class="card__ref">AUV Comms</span>
           <h3>AUV Acoustic Communication System</h3>
           <p>Chirp-FSK acoustic link for Antarctic under-ice AUV positioning, developed for EEE4113F.</p>
           <div class="tags"><span>Chirp-FSK</span><span>Embedded C</span></div>
-        </div>
-        <div class="card">
+        </article>
+        <article class="card">
           <span class="card__ref">Ground Station</span>
           <h3>Rocket Telemetry Ground Station</h3>
           <p>ESP32 flight-side transmitter, Raspberry Pi ground receiver, live Flask dashboard for telemetry.</p>
           <div class="tags"><span>ESP32</span><span>Raspberry Pi</span><span>Flask</span></div>
-        </div>
+        </article>
       </div>
-    </div>
+    </section>
 
     <!-- Window: Experience -->
-    <div id="experience-win" class="window">
-      <div class="window-header" onmousedown="dragStart(event, 'experience-win')">
-        <span class="title">Log — 04 Record</span>
-        <button class="close-btn" onclick="closeWindow('experience-win')">✕</button>
-      </div>
+    <section id="experience-win" class="window" data-app="experience-win" aria-label="Experience and achievements">
+      <header class="window-header">
+        <div class="window-header__id">
+          <span class="led"></span>
+          <span class="title">Log — 04 Record</span>
+        </div>
+        <button class="close-btn" data-close="experience-win" aria-label="Close Record">⊗</button>
+      </header>
       <div class="window-body">
         <h3>Experience</h3>
-        <div class="exp"><span class="yr">2025</span><div><strong>Embedded Systems Tutor — UCT</strong><p>Digital logic and microcontroller programming in C.</p></div></div>
-        <div class="exp"><span class="yr">2024</span><div><strong>Engineering Design Tutor — UCT</strong><p>PCB design in KiCad, intro engineering design course.</p></div></div>
-        <div class="exp"><span class="yr">2024</span><div><strong>UCT Formula One Team — Electrical</strong><p>Researched the Brake System Plausibility Device and Brake Over Travel Switch.</p></div></div>
-        <div class="exp"><span class="yr">2023–</span><div><strong>SHAWCO Volunteer</strong><p>Digital literacy teaching in Khayelitsha and Langa.</p></div></div>
+        <div class="exp"><span class="yr">2025</span><div><strong>Embedded Systems Tutor</strong><span class="org">UCT</span><p>Digital logic and microcontroller programming in C.</p></div></div>
+        <div class="exp"><span class="yr">2024</span><div><strong>Engineering Design Tutor</strong><span class="org">UCT</span><p>PCB design in KiCad, intro engineering design course.</p></div></div>
+        <div class="exp"><span class="yr">2024</span><div><strong>UCT Formula One Team — Electrical</strong><span class="org">UCT</span><p>Researched the Brake System Plausibility Device and Brake Over Travel Switch.</p></div></div>
+        <div class="exp"><span class="yr">2023–</span><div><strong>SHAWCO Volunteer</strong><span class="org">Cape Town</span><p>Digital literacy teaching in Khayelitsha and Langa.</p></div></div>
         <hr>
         <h3>Achievements</h3>
         <ul class="achv">
-          <li><strong>Dean's Merit List</strong> — UCT 2024 (Embedded Systems I & II)</li>
-          <li><strong>DUX Scholar</strong> — Pretoria Technical HS, 2021</li>
-          <li><strong>Provincial Colours (Debating)</strong> — Gauteng, 2018</li>
-          <li><strong>Provincial Colours (Chess)</strong> — Gauteng, 2019</li>
+          <li><strong>Dean's Merit List</strong><span>UCT 2024 — Embedded Systems I &amp; II</span></li>
+          <li><strong>DUX Scholar</strong><span>Pretoria Technical HS, 2021</span></li>
+          <li><strong>Provincial Colours — Debating</strong><span>Gauteng, 2018</span></li>
+          <li><strong>Provincial Colours — Chess</strong><span>Gauteng, 2019</span></li>
         </ul>
       </div>
-    </div>
+    </section>
 
     <!-- Window: Contact -->
-    <div id="contact-win" class="window">
-      <div class="window-header" onmousedown="dragStart(event, 'contact-win')">
-        <span class="title">Contact — Emmanuel Basua</span>
-        <button class="close-btn" onclick="closeWindow('contact-win')">✕</button>
-      </div>
+    <section id="contact-win" class="window" data-app="contact-win" aria-label="Contact">
+      <header class="window-header">
+        <div class="window-header__id">
+          <span class="led"></span>
+          <span class="title">Contact — Emmanuel Basua</span>
+        </div>
+        <button class="close-btn" data-close="contact-win" aria-label="Close Contact">⊗</button>
+      </header>
       <div class="window-body">
-        <p>Get in touch for engineering projects or inquiries:</p>
+        <p class="contact-intro">Get in touch for engineering projects or inquiries:</p>
         <div class="contact-list">
-          <a href="mailto:basua857@gmail.com"><span>Email</span> <strong>basua857@gmail.com</strong></a>
-          <a href="tel:+27671600924"><span>Phone</span> <strong>+27 671 600 924</strong></a>
-          <a href="#" target="_blank"><span>LinkedIn</span> <strong>/in/emmanuelbasua</strong></a>
-          <a href="#" target="_blank"><span>GitHub</span> <strong>/emmanuelbasua</strong></a>
+          <a href="mailto:basua857@gmail.com"><span class="c-ico" aria-hidden="true">✉</span><span class="c-txt"><em>Email</em><strong>basua857@gmail.com</strong></span></a>
+          <a href="tel:+27671600924"><span class="c-ico" aria-hidden="true">☎</span><span class="c-txt"><em>Phone</em><strong>+27 671 600 924</strong></span></a>
+          <a href="#" target="_blank" rel="noopener"><span class="c-ico" aria-hidden="true">in</span><span class="c-txt"><em>LinkedIn</em><strong>/in/emmanuelbasua</strong></span></a>
+          <a href="#" target="_blank" rel="noopener"><span class="c-ico" aria-hidden="true">◇</span><span class="c-txt"><em>GitHub</em><strong>/emmanuelbasua</strong></span></a>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- Bottom Taskbar -->
-  <div id="taskbar">
-    <button class="start-btn">E. Basua — EE</button>
-    <div class="time" id="clock">00:00</div>
-  </div>
+  <!-- Taskbar -->
+  <footer id="taskbar">
+    <button class="start-btn" id="start-btn">
+      <span class="start-btn__mark">⏚</span>E. BASUA — EE
+    </button>
+    <div class="taskbar__apps" id="taskbar-apps" aria-label="Open windows"></div>
+    <div class="taskbar__status mono">
+      <span id="uptime">SYS_UPTIME 00:00:00</span>
+      <span class="divider">|</span>
+      <span id="clock">00:00</span>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
