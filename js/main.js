@@ -1,29 +1,32 @@
 (() => {
-  const reveal = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in-view'); }), {threshold:.12});
-  document.querySelectorAll('.section-head,.project,.about-statement,.facts,.timeline article,.awards div,.skill-card,.artifact,.contact-right').forEach(el => { el.classList.add('reveal'); reveal.observe(el); });
+ const loader=document.getElementById('loader');
+ window.addEventListener('load',()=>setTimeout(()=>loader.classList.add('done'),900));
+ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}));
+ const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view')}),{threshold:.12});
+ document.querySelectorAll('.section-head,.project,.about-statement,.facts,.cap,.timeline article,.awards div,.contact-right,.artifact,.skill-group').forEach(el=>observer.observe(el));
+ document.querySelector('footer span:last-child')?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href')); if(!target) return;
-    e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'});
-    document.querySelectorAll('.nav nav a').forEach(x => x.classList.toggle('active', x.getAttribute('href') === a.getAttribute('href')));
-  }));
+ document.querySelectorAll('.project-toggle').forEach(button=>{
+   button.addEventListener('click',()=>{
+     const card=button.closest('.project');
+     const details=card?.querySelector('.project-details');
+     if(!details) return;
+     const open=!details.hasAttribute('hidden');
+     if(open){details.setAttribute('hidden','');button.setAttribute('aria-expanded','false');button.firstChild.textContent='View project ';}
+     else{details.removeAttribute('hidden');button.setAttribute('aria-expanded','true');button.firstChild.textContent='Hide project ';setTimeout(()=>details.scrollIntoView({behavior:'smooth',block:'nearest'}),80)}
+   });
+ });
 
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if(entry.isIntersecting){ const id='#'+entry.target.id; document.querySelectorAll('.nav nav a').forEach(a => a.classList.toggle('active', a.getAttribute('href')===id)); }
-  }), {rootMargin:'-35% 0px -55% 0px', threshold:0});
-  ['about','work','experience','skills','artifacts','contact'].forEach(id => {const el=document.getElementById(id); if(el) observer.observe(el);});
+ const skillRail=document.querySelector('.skill-rail');
+ if(skillRail){
+   skillRail.addEventListener('mouseenter',()=>skillRail.style.animationPlayState='paused');
+   skillRail.addEventListener('mouseleave',()=>skillRail.style.animationPlayState='running');
+ }
 
-  document.querySelectorAll('.expand-project').forEach(button => button.addEventListener('click', () => {
-    const details = button.nextElementSibling; if(!details) return;
-    const open = details.classList.toggle('open'); button.setAttribute('aria-expanded', open); button.firstChild.textContent = open ? 'Hide project ' : 'View project ';
-  }));
-
-  document.querySelectorAll('.detail-tabs button').forEach(tab => tab.addEventListener('click', () => {
-    const tabs = tab.closest('.detail-tabs'); const details = tabs.closest('.project-details');
-    tabs.querySelectorAll('button').forEach(x=>x.classList.remove('active')); tab.classList.add('active');
-    details.querySelectorAll('.detail-pane').forEach(p=>p.classList.toggle('active', p.dataset.pane===tab.dataset.tab));
-  }));
-
-  const track=document.getElementById('marqueeTrack'); let offset=0;
-  document.querySelectorAll('.marquee-arrow').forEach(btn => btn.addEventListener('click', () => { offset += Number(btn.dataset.dir)*170; offset=Math.max(-850,Math.min(0,offset)); track.style.transform=`translateX(${offset}px)`; }));
+ const sections=[...document.querySelectorAll('main section[id]')];
+ const navLinks=[...document.querySelectorAll('.nav nav a')];
+ const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+   if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}
+ }),{rootMargin:'-35% 0px -55% 0px',threshold:0});
+ sections.forEach(s=>navObserver.observe(s));
 })();
