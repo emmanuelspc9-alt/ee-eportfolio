@@ -24,6 +24,5 @@
     details.querySelectorAll('.detail-pane').forEach(p=>p.classList.toggle('active', p.dataset.pane===tab.dataset.tab));
   }));
 
-  const track=document.getElementById('marqueeTrack'); let offset=0;
-  document.querySelectorAll('.marquee-arrow').forEach(btn => btn.addEventListener('click', () => { offset += Number(btn.dataset.dir)*170; offset=Math.max(-850,Math.min(0,offset)); track.style.transform=`translateX(${offset}px)`; }));
+
 })();
