@@ -27,6 +27,13 @@
   const OPEN_OFFSET = { x: 40, y: 34 }; // cascade so windows don't stack exactly
 
   const state = {}; // id -> { open, minimized, pill }
+  const APP_ICONS = {
+    'about-win': 'user-round',
+    'skills-win': 'cpu',
+    'projects-win': 'folder',
+    'experience-win': 'briefcase-business',
+    'contact-win': 'mail',
+  };
 
   windows.forEach((w, i) => {
     state[w.id] = { open: false, minimized: false, pill: null };
@@ -179,15 +186,27 @@
 
   /* ---------------- Taskbar pills ---------------- */
   function addTaskbarPill(id) {
-    if (window.innerWidth <= 760) return; // mobile: no taskbar pills, sheets are self-evident
     if (state[id].pill) return;
     const pill = document.createElement('button');
     pill.className = 'pill';
     pill.dataset.app = id;
-    pill.innerHTML = `<span class="led"></span><span>${APP_LABELS[id] || id}</span>`;
-    pill.addEventListener('click', () => toggleMinimize(id));
+    pill.type = 'button';
+    pill.title = APP_LABELS[id] || id;
+    pill.setAttribute('aria-label', `Open ${APP_LABELS[id] || id}`);
+    pill.innerHTML = `<span class="dock-icon"><i data-lucide="${APP_ICONS[id] || 'app-window'}"></i></span><span class="dock-label">${APP_LABELS[id] || id}</span><span class="led"></span>`;
+    pill.addEventListener('click', () => {
+      if (!state[id].open) openWindow(id);
+      else if (state[id].minimized) toggleMinimize(id);
+      else if (activeId === id) toggleMinimize(id);
+      else bringToFront(document.getElementById(id));
+    });
     taskbarApps.appendChild(pill);
     state[id].pill = pill;
+    if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.8 } });
+  }
+
+  function buildDock() {
+    windows.forEach(win => addTaskbarPill(win.id));
   }
 
   function removeTaskbarPill(id) {
@@ -203,7 +222,7 @@
 
   function dragStart(e, win) {
     if (window.innerWidth <= 760) return; // full-screen sheets on mobile: no dragging
-    if (e.target.closest('.close-btn')) return;
+    if (e.target.closest('.window-controls, button, a, input, textarea, select')) return;
     bringToFront(win);
     dragWin = win;
     const point = e.touches ? e.touches[0] : e;
@@ -238,14 +257,29 @@
   /* ---------------- Wire up events ---------------- */
   topNav.forEach(btn => btn.addEventListener('click', () => openWindow(btn.dataset.target, btn)));
 
+  document.querySelectorAll('[data-target]').forEach(btn => {
+    if (btn.closest('.topbar__nav') || btn.classList.contains('icon')) return;
+    btn.addEventListener('click', () => openWindow(btn.dataset.target, btn));
+  });
+
   icons.forEach(icon => {
-    icon.addEventListener('click', () => openWindow(icon.dataset.target, icon));
+    icon.addEventListener('click', () => {
+      icons.forEach(i => i.classList.remove('is-selected'));
+      icon.classList.add('is-selected');
+      openWindow(icon.dataset.target, icon);
+    });
     icon.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openWindow(icon.dataset.target, icon);
+        icon.click();
       }
     });
+  });
+
+  desktop.addEventListener('click', e => {
+    if (e.target === desktop || e.target.closest('.hero-panel') || e.target.closest('.workspace-label')) {
+      icons.forEach(i => i.classList.remove('is-selected'));
+    }
   });
 
   windows.forEach(win => {
@@ -264,6 +298,8 @@
   document.getElementById('start-btn').addEventListener('click', () => {
     openWindow('about-win');
   });
+
+  buildDock();
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && activeId) closeWindow(activeId);
