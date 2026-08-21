@@ -1,0 +1,1 @@
+Optional: add your portrait as assets/profile.jpg. Recommended: square JPG, at least 800x800px. The portfolio automatically shows a polished EB placeholder if the image is absent.
