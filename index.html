@@ -1,191 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emmanuel Basua — Electrical Engineering Portfolio</title>
-  <meta name="description" content="Emmanuel Basua — Electrical &amp; Computer Engineering, University of Cape Town. Embedded systems, sensor fusion and closed-loop control.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2314181D'/%3E%3Crect x='11' y='11' width='10' height='10' fill='none' stroke='%232B4C7E' stroke-width='2'/%3E%3Cpath d='M16 4v7M16 21v7M4 16h7M21 16h7' stroke='%232B4C7E' stroke-width='2'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emmanuel Basua — Engineering Portfolio</title>
+<meta name="description" content="Emmanuel Basua — Electrical & Computer Engineering portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Boot sequence -->
-  <div id="boot" aria-hidden="true">
-    <div id="boot-lines" class="mono"></div>
-    <div class="boot-bar"><div class="boot-bar__fill" id="boot-fill"></div></div>
-  </div>
-
-  <div id="crt-overlay" aria-hidden="true"></div>
-
-  <main id="desktop">
-    <!-- Desktop icons -->
-    <div class="icon-grid" role="menu" aria-label="Applications">
-      <button class="icon" data-target="about-win" style="--i:0">
-        <span class="icon-img" aria-hidden="true">📝</span>
-        <span class="icon-label">About.txt</span>
-      </button>
-      <button class="icon" data-target="skills-win" style="--i:1">
-        <span class="icon-img" aria-hidden="true">💻</span>
-        <span class="icon-label">Toolset.sh</span>
-      </button>
-      <button class="icon" data-target="projects-win" style="--i:2">
-        <span class="icon-img" aria-hidden="true">📁</span>
-        <span class="icon-label">Projects</span>
-      </button>
-      <button class="icon" data-target="experience-win" style="--i:3">
-        <span class="icon-img" aria-hidden="true">📜</span>
-        <span class="icon-label">Record.log</span>
-      </button>
-      <button class="icon" data-target="contact-win" style="--i:4">
-        <span class="icon-img" aria-hidden="true">📬</span>
-        <span class="icon-label">Contact</span>
-      </button>
-    </div>
-
-    <!-- Window: About -->
-    <section id="about-win" class="window" data-app="about-win" aria-label="About">
-      <header class="window-header">
-        <div class="window-header__id">
-          <span class="led"></span>
-          <span class="title">Notepad — DWG NO. EB-001</span>
-        </div>
-        <button class="close-btn" data-close="about-win" aria-label="Close About">⊗</button>
-      </header>
-      <div class="window-body">
-        <div class="stamp">EB‑001</div>
-        <h2>Emmanuel Basua</h2>
-        <p class="role">Electrical &amp; Computer Engineering — University of Cape Town</p>
-        <p class="desc">I design closed-loop systems where the hard part is the sensor, not the algorithm — gyro-stabilised navigation, acoustic communication, and telemetry, drafted first on paper and proven on the bench.</p>
-        <hr>
-        <div class="facts">
-          <p><strong>Location</strong><span>Kenilworth, Cape Town</span></p>
-          <p><strong>Focus</strong><span>Embedded systems / signals</span></p>
-          <p><strong>Enrolled</strong><span>2023 – present</span></p>
-        </div>
-        <a href="assets/emmanuel-basua-cv.pdf" class="btn" download>
-          <span>Download CV</span><span class="btn__arrow">↓</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Window: Skills -->
-    <section id="skills-win" class="window" data-app="skills-win" aria-label="Toolset">
-      <header class="window-header">
-        <div class="window-header__id">
-          <span class="led"></span>
-          <span class="title">Terminal — 02 Toolset</span>
-        </div>
-        <button class="close-btn" data-close="skills-win" aria-label="Close Toolset">⊗</button>
-      </header>
-      <div class="window-body mono">
-        <p class="prompt">$ ./list_skills.sh</p>
-        <div class="skill-row" style="--pct:90"><span>C / Microcontrollers</span><span class="bar"><i></i></span><span class="pct">90%</span></div>
-        <div class="skill-row" style="--pct:90"><span>MATLAB / Simulink</span><span class="bar"><i></i></span><span class="pct">90%</span></div>
-        <div class="skill-row" style="--pct:85"><span>KiCad</span><span class="bar"><i></i></span><span class="pct">85%</span></div>
-        <div class="skill-row" style="--pct:95"><span>SolidWorks</span><span class="bar"><i></i></span><span class="pct">95%</span></div>
-        <div class="skill-row" style="--pct:85"><span>Python / Java / Linux</span><span class="bar"><i></i></span><span class="pct">85%</span></div>
-        <div class="skill-row" style="--pct:85"><span>Assembly — MIPS</span><span class="bar"><i></i></span><span class="pct">85%</span></div>
-        <div class="skill-row" style="--pct:60"><span>Assembly — ARM</span><span class="bar"><i></i></span><span class="pct">60%</span></div>
-        <div class="skill-row" style="--pct:95"><span>Soldering</span><span class="bar"><i></i></span><span class="pct">95%</span></div>
-        <p class="prompt prompt--end">$ <span class="cursor">_</span></p>
-      </div>
-    </section>
-
-    <!-- Window: Projects -->
-    <section id="projects-win" class="window window-lg" data-app="projects-win" aria-label="Projects">
-      <header class="window-header">
-        <div class="window-header__id">
-          <span class="led"></span>
-          <span class="title">File Explorer — Selected Work</span>
-        </div>
-        <button class="close-btn" data-close="projects-win" aria-label="Close Projects">⊗</button>
-      </header>
-      <div class="window-body">
-        <article class="card card--feature">
-          <span class="card__ref">Featured — Micromouse</span>
-          <h3>Gyro-Enhanced Micromouse Trajectory Following</h3>
-          <p>Closed-loop navigation combining ICM-20602 gyroscope heading control (100&nbsp;Hz, 2° accuracy) with VL53L1X ToF wall detection for centreline correction. Zero-velocity-update bias compensation and proportional turn control, validated across Simstruct maze trials with varied wheel bias.</p>
-          <div class="tags"><span>MATLAB/Simulink</span><span>Sensor Fusion</span><span>Closed-loop Control</span></div>
-          <video controls preload="none"><source src="assets/micromouse-demo.mp4" type="video/mp4"></video>
-        </article>
-        <article class="card">
-          <span class="card__ref">AUV Comms</span>
-          <h3>AUV Acoustic Communication System</h3>
-          <p>Chirp-FSK acoustic link for Antarctic under-ice AUV positioning, developed for EEE4113F.</p>
-          <div class="tags"><span>Chirp-FSK</span><span>Embedded C</span></div>
-        </article>
-        <article class="card">
-          <span class="card__ref">Ground Station</span>
-          <h3>Rocket Telemetry Ground Station</h3>
-          <p>ESP32 flight-side transmitter, Raspberry Pi ground receiver, live Flask dashboard for telemetry.</p>
-          <div class="tags"><span>ESP32</span><span>Raspberry Pi</span><span>Flask</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Window: Experience -->
-    <section id="experience-win" class="window" data-app="experience-win" aria-label="Experience and achievements">
-      <header class="window-header">
-        <div class="window-header__id">
-          <span class="led"></span>
-          <span class="title">Log — 04 Record</span>
-        </div>
-        <button class="close-btn" data-close="experience-win" aria-label="Close Record">⊗</button>
-      </header>
-      <div class="window-body">
-        <h3>Experience</h3>
-        <div class="exp"><span class="yr">2025</span><div><strong>Embedded Systems Tutor</strong><span class="org">UCT</span><p>Digital logic and microcontroller programming in C.</p></div></div>
-        <div class="exp"><span class="yr">2024</span><div><strong>Engineering Design Tutor</strong><span class="org">UCT</span><p>PCB design in KiCad, intro engineering design course.</p></div></div>
-        <div class="exp"><span class="yr">2024</span><div><strong>UCT Formula One Team — Electrical</strong><span class="org">UCT</span><p>Researched the Brake System Plausibility Device and Brake Over Travel Switch.</p></div></div>
-        <div class="exp"><span class="yr">2023–</span><div><strong>SHAWCO Volunteer</strong><span class="org">Cape Town</span><p>Digital literacy teaching in Khayelitsha and Langa.</p></div></div>
-        <hr>
-        <h3>Achievements</h3>
-        <ul class="achv">
-          <li><strong>Dean's Merit List</strong><span>UCT 2024 — Embedded Systems I &amp; II</span></li>
-          <li><strong>DUX Scholar</strong><span>Pretoria Technical HS, 2021</span></li>
-          <li><strong>Provincial Colours — Debating</strong><span>Gauteng, 2018</span></li>
-          <li><strong>Provincial Colours — Chess</strong><span>Gauteng, 2019</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Window: Contact -->
-    <section id="contact-win" class="window" data-app="contact-win" aria-label="Contact">
-      <header class="window-header">
-        <div class="window-header__id">
-          <span class="led"></span>
-          <span class="title">Contact — Emmanuel Basua</span>
-        </div>
-        <button class="close-btn" data-close="contact-win" aria-label="Close Contact">⊗</button>
-      </header>
-      <div class="window-body">
-        <p class="contact-intro">Get in touch for engineering projects or inquiries:</p>
-        <div class="contact-list">
-          <a href="mailto:basua857@gmail.com"><span class="c-ico" aria-hidden="true">✉</span><span class="c-txt"><em>Email</em><strong>basua857@gmail.com</strong></span></a>
-          <a href="tel:+27671600924"><span class="c-ico" aria-hidden="true">☎</span><span class="c-txt"><em>Phone</em><strong>+27 671 600 924</strong></span></a>
-          <a href="#" target="_blank" rel="noopener"><span class="c-ico" aria-hidden="true">in</span><span class="c-txt"><em>LinkedIn</em><strong>/in/emmanuelbasua</strong></span></a>
-          <a href="#" target="_blank" rel="noopener"><span class="c-ico" aria-hidden="true">◇</span><span class="c-txt"><em>GitHub</em><strong>/emmanuelbasua</strong></span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Taskbar -->
-  <footer id="taskbar">
-    <button class="start-btn" id="start-btn">
-      <span class="start-btn__mark">⏚</span>E. BASUA — EE
-    </button>
-    <div class="taskbar__apps" id="taskbar-apps" aria-label="Open windows"></div>
-    <div class="taskbar__status mono">
-      <span id="uptime">SYS_UPTIME 00:00:00</span>
-      <span class="divider">|</span>
-      <span id="clock">00:00</span>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+<div class="loader" id="loader"><div class="loader-inner"><span class="loader-mark">EB</span><p>INITIALISING / ENGINEERING PORTFOLIO</p><div class="loader-line"><i></i></div><small>BUILD 2026.08</small></div></div>
+<header class="nav"><a class="brand" href="#top"><span>EB</span><strong>EMMANUEL<br>BASUA</strong></a><nav><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav><a class="nav-cta" href="mailto:basua857@gmail.com">Let's talk <b>↗</b></a></header>
+<main id="top">
+<section class="hero section-wrap">
+<div class="hero-copy"><div class="eyebrow"><i></i> ELECTRICAL & COMPUTER ENGINEERING / CAPE TOWN</div><h1>I build systems<br>that <em>move.</em></h1><p class="hero-lead">Embedded hardware, signal processing and control systems — taking ideas from a block diagram to a working prototype.</p><div class="hero-actions"><a class="btn-primary" href="#work">Explore my work <span>↓</span></a><a class="text-link" href="#contact">Start a conversation <span>↗</span></a></div><div class="hero-meta"><span><b>04+</b> engineering domains</span><span><b>UCT</b> Electrical & Computer Engineering</span><span><b>∞</b> things still to build</span></div></div>
+<div class="hero-visual"><div class="visual-grid"></div><div class="photo-frame"><img src="assets/profile.jpg" alt="Emmanuel Basua" onerror="this.style.display='none';document.querySelector('.photo-placeholder').classList.add('show')"><div class="photo-placeholder"><span>EB</span><small>ADD PROFILE PHOTO<br>assets/profile.jpg</small></div><div class="photo-tag">ENGINEER / BUILDER</div></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="coord">33°57′31″ S<br>18°27′36″ E</div></div>
+</section>
+<section class="ticker"><div>EMBEDDED SYSTEMS</div><div>SENSOR FUSION</div><div>DIGITAL SIGNAL PROCESSING</div><div>CONTROL SYSTEMS</div><div>PCB DESIGN</div><div>PROTOTYPING</div></section>
+<section id="work" class="section-wrap work"><div class="section-head"><div><span class="section-num">01</span><h2>Selected <em>work.</em></h2></div><p>Projects where software meets electronics, and theory has to survive contact with hardware.</p></div>
+<div class="project-grid">
+<article class="project featured"><div class="project-art art-mouse"><div class="maze"></div><div class="mouse-chip">MICROMOUSE<br><b>01</b></div><span class="art-label">CLOSED LOOP / 100 Hz</span></div><div class="project-content"><div class="project-top"><span>FEATURED PROJECT</span><b>01</b></div><h3>Gyro-Enhanced Micromouse</h3><p>Closed-loop trajectory following using an ICM-20602 gyroscope, VL53L1X ToF sensing and bias compensation for reliable maze navigation.</p><div class="tags"><span>Sensor Fusion</span><span>Simulink</span><span>Control</span></div><a class="project-link" href="#">View project <span>↗</span></a></div></article>
+<article class="project"><div class="project-art art-wave"><div class="wave"></div><span class="art-label">CHIRP / FSK / AUV</span></div><div class="project-content"><div class="project-top"><span>EEE4113F / COMMS</span><b>02</b></div><h3>AUV Acoustic Communication</h3><p>Chirp-FSK acoustic link for an Antarctic under-ice AUV positioning and data system.</p><div class="tags"><span>DSP</span><span>Embedded C</span><span>Chirp-FSK</span></div><a class="project-link" href="#">View project <span>↗</span></a></div></article>
+<article class="project"><div class="project-art art-rocket"><div class="rocket-line">↑</div><div class="telemetry">ALT 482m<br>BAT 3.82V<br>GPS LOCK</div><span class="art-label">LIVE TELEMETRY</span></div><div class="project-content"><div class="project-top"><span>ROCKET / GROUND STATION</span><b>03</b></div><h3>Rocket Telemetry</h3><p>ESP32 flight transmitter, Raspberry Pi receiver and a live Flask dashboard for telemetry.</p><div class="tags"><span>ESP32</span><span>Raspberry Pi</span><span>Flask</span></div><a class="project-link" href="#">View project <span>↗</span></a></div></article>
+</div></section>
+<section id="about" class="section-wrap about"><div class="section-head"><div><span class="section-num">02</span><h2>A little <em>about me.</em></h2></div></div><div class="about-grid"><div class="about-statement"><span class="quote">“</span><h3>I like the part where a diagram becomes a device.</h3><p>I design closed-loop systems where the hard part is often the sensor, not the algorithm — from gyro-stabilised navigation and acoustic communication to telemetry and embedded control.</p><p>My approach is practical: define the constraints, model the system, build the prototype, measure it, then iterate until the hardware behaves the way it should.</p></div><div class="facts"><div><small>EDUCATION</small><strong>Electrical & Computer Engineering</strong><span>University of Cape Town</span></div><div><small>FOCUS</small><strong>Embedded systems / signals</strong><span>Hardware, firmware & control</span></div><div><small>LOCATION</small><strong>Cape Town, South Africa</strong><span>Designing from the southern tip</span></div><a class="cv" href="assets/emmanuel-basua-cv.pdf" download>Download CV <span>↓</span></a></div></div></section>
+<section class="section-wrap capabilities"><div class="section-head"><div><span class="section-num">03</span><h2>What I <em>work with.</em></h2></div></div><div class="cap-grid"><div class="cap"><span>01</span><h3>Embedded</h3><p>Microcontrollers, sensors, telemetry, real-time firmware and hardware bring-up.</p><div class="cap-tags">C / ESP32 / Raspberry Pi / PX4</div></div><div class="cap"><span>02</span><h3>Signals</h3><p>Sampling, filtering, modulation, acoustic links and signal analysis.</p><div class="cap-tags">MATLAB / Simulink / DSP</div></div><div class="cap"><span>03</span><h3>Hardware</h3><p>Schematics, PCB layout, soldering, power systems and rapid prototyping.</p><div class="cap-tags">KiCad / CAD / Bench</div></div><div class="cap"><span>04</span><h3>Software</h3><p>Tools and interfaces that make complex engineering systems observable.</p><div class="cap-tags">Python / Java / Linux / Git</div></div></div></section>
+<section id="experience" class="section-wrap experience"><div class="section-head"><div><span class="section-num">04</span><h2>Experience & <em>recognition.</em></h2></div></div><div class="timeline"><article><span class="date">2025</span><div><h3>Embedded Systems Tutor</h3><b>University of Cape Town</b><p>Digital logic and microcontroller programming in C.</p></div></article><article><span class="date">2024</span><div><h3>Engineering Design Tutor</h3><b>University of Cape Town</b><p>PCB design in KiCad and introductory engineering design.</p></div></article><article><span class="date">2024</span><div><h3>UCT Formula One Team — Electrical</h3><b>University of Cape Town</b><p>Research into the Brake System Plausibility Device and Brake Over Travel Switch.</p></div></article><article><span class="date">2023–</span><div><h3>SHAWCO Volunteer</h3><b>Cape Town</b><p>Digital literacy teaching in Khayelitsha and Langa.</p></div></article></div><div class="awards"><div><span>01</span><strong>Dean's Merit List</strong><small>UCT 2024 — Embedded Systems I & II</small></div><div><span>02</span><strong>DUX Scholar</strong><small>Pretoria Technical HS, 2021</small></div><div><span>03</span><strong>Provincial Colours — Debating</strong><small>Gauteng, 2018</small></div><div><span>04</span><strong>Provincial Colours — Chess</strong><small>Gauteng, 2019</small></div></div></section>
+<section id="contact" class="contact"><div class="section-wrap contact-inner"><div><span class="section-num">05</span><p class="eyebrow">HAVE A PROJECT?</p><h2>Let's make<br><em>it real.</em></h2></div><div class="contact-right"><p>Engineering projects, embedded systems, hardware prototypes or just a good technical conversation.</p><a class="mail" href="mailto:basua857@gmail.com">basua857@gmail.com <span>↗</span></a><div class="contact-links"><a href="tel:+27671600924">+27 671 600 924</a><a href="#">LinkedIn ↗</a><a href="#">GitHub ↗</a></div></div></div></section>
+</main>
+<footer><div class="section-wrap footer-inner"><span>© 2026 EMMANUEL BASUA</span><span>BUILT WITH CURIOSITY + ELECTRICITY</span><span>BACK TO TOP ↑</span></div></footer>
+<script src="js/main.js"></script>
+</body></html>
