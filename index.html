@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Electrical Engineering Portfolio</title>
+<meta name="description" content="Professional engineering eportfolio of [Your Name], Electrical Engineering student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Skip link for accessibility -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Mobile top bar -->
+<header class="mobile-bar">
+  <span class="mobile-bar__logo">EE//<span>[YN]</span></span>
+  <button class="mobile-bar__toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Left rail navigation (schematic reference designators) -->
+<nav class="rail" id="rail" aria-label="Primary">
+  <div class="rail__brand">
+    <span class="rail__mark" aria-hidden="true">⏚</span>
+    <span class="rail__name">[Your Name]</span>
+    <span class="rail__role">Electrical Engineering</span>
+  </div>
+  <ol class="rail__list">
+    <li><a href="#about"><span class="rail__tag">U1</span><span class="rail__label">About</span></a></li>
+    <li><a href="#skills"><span class="rail__tag">R1</span><span class="rail__label">Skills</span></a></li>
+    <li><a href="#projects"><span class="rail__tag">Q1</span><span class="rail__label">Projects</span></a></li>
+    <li><a href="#artefacts"><span class="rail__tag">D1</span><span class="rail__label">Artefacts</span></a></li>
+    <li><a href="#contact"><span class="rail__tag">J1</span><span class="rail__label">Contact</span></a></li>
+  </ol>
+  <div class="rail__footer">
+    <span class="rail__status" id="railStatus">● SYSTEM ONLINE</span>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <p class="eyebrow mono">SCHEMATIC — PROFESSIONAL ENGINEERING IDENTITY</p>
+    <h1 class="hero__title">
+      [Your Name]
+      <span class="hero__title-sub">builds circuits that behave.</span>
+    </h1>
+    <p class="hero__terminal mono" id="terminalLine"></p>
+    <p class="hero__desc">
+      Final-year Electrical Engineering student focused on power systems and embedded design.
+      This site documents how I think, what I've built, and the evidence behind it —
+      replace this line with the sentence that actually sounds like you.
+    </p>
+    <div class="hero__cta">
+      <a href="#projects" class="btn btn--primary">View projects</a>
+      <a href="assets/resume.pdf" class="btn btn--ghost" download>Download résumé (PDF)</a>
+    </div>
+
+    <!-- Signature: animated circuit trace connecting the sections -->
+    <svg class="hero__trace" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+      <path id="tracePath" d="M0,110 L150,110 L190,70 L420,70 L460,110 L720,110 L760,40 L980,40 L1020,110 L1200,110"
+            fill="none" stroke="var(--line-bright)" stroke-width="2"/>
+      <path d="M0,110 L150,110 L190,70 L420,70 L460,110 L720,110 L760,40 L980,40 L1020,110 L1200,110"
+            fill="none" stroke="var(--accent-copper)" stroke-width="2" class="hero__trace-pulse"/>
+      <circle cx="190" cy="70" r="4" class="node"/>
+      <circle cx="460" cy="110" r="4" class="node"/>
+      <circle cx="760" cy="40" r="4" class="node"/>
+      <circle cx="1020" cy="110" r="4" class="node"/>
+    </svg>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="panel" id="about">
+    <div class="panel__head">
+      <span class="tag mono">U1</span>
+      <h2>About</h2>
+      <span class="panel__hint mono">// the core component</span>
+    </div>
+    <div class="about__body">
+      <div class="about__photo" aria-hidden="true">
+        <svg viewBox="0 0 200 200" class="photo-placeholder">
+          <rect width="200" height="200" rx="10" fill="var(--bg-panel-alt)"/>
+          <circle cx="100" cy="78" r="34" fill="none" stroke="var(--line-bright)" stroke-width="2"/>
+          <path d="M45,165 C45,120 155,120 155,165" fill="none" stroke="var(--line-bright)" stroke-width="2"/>
+          <text x="100" y="192" text-anchor="middle" class="mono" font-size="9" fill="var(--text-muted)">REPLACE WITH HEADSHOT</text>
+        </svg>
+      </div>
+      <div class="about__text">
+        <p><strong>[Your Name]</strong> is an Electrical Engineering student at [Your University],
+        currently in [Year of Study]. Write two to three sentences here about what pulled you into
+        electrical engineering specifically — a project, a person, a problem you couldn't leave alone.
+        Specifics beat adjectives: name the circuit, the competition, the internship.</p>
+        <p>Outside coursework, I'm interested in [power systems / embedded firmware / renewable energy /
+        control systems — pick what's true]. My approach to engineering is [describe a working habit or
+        value, e.g. "test on the bench before I trust the simulation"]. This portfolio is a working
+        document — it grows as the projects do.</p>
+        <div class="about__facts">
+          <div><span class="mono fact-label">LOCATION</span><span>[City, Country]</span></div>
+          <div><span class="mono fact-label">FOCUS</span><span>[Power / Embedded / Signals]</span></div>
+          <div><span class="mono fact-label">STATUS</span><span>[Available for internships]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="panel panel--alt" id="skills">
+    <div class="panel__head">
+      <span class="tag mono">R1</span>
+      <h2>Skills</h2>
+      <span class="panel__hint mono">// read like a resistor: band colour = proficiency</span>
+    </div>
+    <div class="skills__grid" id="skillsGrid"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="panel" id="projects">
+    <div class="panel__head">
+      <span class="tag mono">Q1</span>
+      <h2>Projects</h2>
+      <span class="panel__hint mono">// signal, amplified</span>
+    </div>
+    <div class="projects__grid">
+
+      <article class="card">
+        <div class="card__thumb" aria-hidden="true">
+          <svg viewBox="0 0 300 160"><rect width="300" height="160" fill="var(--bg-panel-alt)"/>
+            <g stroke="var(--line-bright)" stroke-width="1.5" fill="none">
+              <path d="M20 130 L80 130 L80 90 L140 90 L140 60 L220 60 L220 30 L280 30"/>
+              <circle cx="80" cy="130" r="3" fill="var(--accent-cyan)"/>
+              <circle cx="140" cy="60" r="3" fill="var(--accent-cyan)"/>
+              <circle cx="220" cy="30" r="3" fill="var(--accent-cyan)"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card__body">
+          <p class="mono card__ref">PROJ-01</p>
+          <h3>Project title — e.g. Solar MPPT Charge Controller</h3>
+          <p>One or two sentences on the problem you were solving, the approach you took, and the
+          outcome. Say what changed because of your work — efficiency gained, cost saved, a spec met.</p>
+          <ul class="card__tags mono">
+            <li>Embedded C</li><li>KiCad</li><li>Power Electronics</li>
+          </ul>
+          <a href="#" class="card__link">View write-up →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__thumb" aria-hidden="true">
+          <svg viewBox="0 0 300 160"><rect width="300" height="160" fill="var(--bg-panel-alt)"/>
+            <polyline points="10,80 40,80 55,30 75,130 95,80 300,80" fill="none" stroke="var(--accent-copper)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <p class="mono card__ref">PROJ-02</p>
+          <h3>Project title — e.g. Real-Time ECG Signal Filter</h3>
+          <p>Describe the constraint that made this hard — noise, latency, cost, safety — and how your
+          design responded to it. Reviewers remember trade-offs, not feature lists.</p>
+          <ul class="card__tags mono">
+            <li>MATLAB</li><li>DSP</li><li>Python</li>
+          </ul>
+          <a href="#" class="card__link">View write-up →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__thumb" aria-hidden="true">
+          <svg viewBox="0 0 300 160"><rect width="300" height="160" fill="var(--bg-panel-alt)"/>
+            <g stroke="var(--line-bright)" stroke-width="1.5">
+              <rect x="120" y="60" width="60" height="40" fill="none"/>
+              <line x1="60" y1="80" x2="120" y2="80"/>
+              <line x1="180" y1="80" x2="240" y2="80"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card__body">
+          <p class="mono card__ref">PROJ-03</p>
+          <h3>Project title — e.g. Campus Microgrid Simulation</h3>
+          <p>Team project? Say your role explicitly — "I modelled the load-balancing logic," not
+          "we built a microgrid." Assessors are grading your contribution.</p>
+          <ul class="card__tags mono">
+            <li>ETAP</li><li>Team of 4</li><li>Renewables</li>
+          </ul>
+          <a href="#" class="card__link">View write-up →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ARTEFACTS -->
+  <section class="panel panel--alt" id="artefacts">
+    <div class="panel__head">
+      <span class="tag mono">D1</span>
+      <h2>Artefacts</h2>
+      <span class="panel__hint mono">// evidence, on file</span>
+    </div>
+    <div class="artefacts__grid">
+      <a class="doc" href="#">
+        <span class="doc__icon mono">PDF</span>
+        <span class="doc__meta"><strong>Academic transcript</strong><small>Updated [Month Year]</small></span>
+      </a>
+      <a class="doc" href="#">
+        <span class="doc__icon mono">PDF</span>
+        <span class="doc__meta"><strong>IEEE conference paper</strong><small>Co-author, [Year]</small></span>
+      </a>
+      <a class="doc" href="#">
+        <span class="doc__icon mono">CRT</span>
+        <span class="doc__meta"><strong>Certificate — [Course/Cert name]</strong><small>[Issuing body], [Year]</small></span>
+      </a>
+      <a class="doc" href="#">
+        <span class="doc__icon mono">REF</span>
+        <span class="doc__meta"><strong>Reference letter</strong><small>[Supervisor name], [Company]</small></span>
+      </a>
+      <a class="doc" href="#">
+        <span class="doc__icon mono">AWD</span>
+        <span class="doc__meta"><strong>Award — [Competition name]</strong><small>[Placement], [Year]</small></span>
+      </a>
+      <a class="doc" href="#">
+        <span class="doc__icon mono">LAB</span>
+        <span class="doc__meta"><strong>Lab report — [Course code]</strong><small>Grade: [XX%]</small></span>
+      </a>
+    </div>
+    <p class="artefacts__note">Replace these placeholder cards with real files — drop PDFs into the
+      <code>/assets</code> folder and point each link at them.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="panel contact" id="contact">
+    <div class="panel__head">
+      <span class="tag mono">J1</span>
+      <h2>Contact</h2>
+      <span class="panel__hint mono">// connector</span>
+    </div>
+    <div class="contact__body">
+      <div class="contact__links">
+        <a href="mailto:you@example.com" class="pin">
+          <span class="pin__num mono">1</span> Email — you@example.com
+        </a>
+        <a href="https://linkedin.com" class="pin" target="_blank" rel="noopener">
+          <span class="pin__num mono">2</span> LinkedIn — /in/yourname
+        </a>
+        <a href="https://github.com" class="pin" target="_blank" rel="noopener">
+          <span class="pin__num mono">3</span> GitHub — /yourname
+        </a>
+        <a href="#" class="pin">
+          <span class="pin__num mono">4</span> Phone — +XX XXX XXX XXXX
+        </a>
+      </div>
+      <p class="contact__note">This portfolio is a live document. If you'd like to talk about a
+        project, an internship, or feedback on the work above, reach out — I read everything that
+        comes through.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="mono">[Your Name] · Electrical Engineering Portfolio · Built on Azure Static Web Apps</p>
+    <a href="#top" class="footer__top mono">↑ TOP</a>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
