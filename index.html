@@ -5,7 +5,7 @@
 <title>Emmanuel Basua — Electrical Engineer</title>
 <meta name="description" content="Emmanuel Basua — Electrical & Computer Engineering portfolio covering embedded systems, DSP, robotics and control.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
   </span>
   <span><strong>EMMANUEL BASUA</strong><small>ELECTRICAL ENGINEER</small></span>
 </a>
-  <nav><a class="active" href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#artifacts">Artifacts</a><a href="#contact">Contact</a></nav>
+  <nav><a href="#about">About</a><a class="active" href="#work">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#artifacts">Artifacts</a><a href="#contact">Contact</a></nav>
   <a class="nav-cta" href="mailto:basua857@gmail.com">Let's talk <b>↗</b></a>
 </header>
 
@@ -30,20 +30,21 @@
     <p class="hero-kicker">ENGINEERING PORTFOLIO <span>/</span> BUILD 2026.08</p>
     <h1>I build systems that <em>move.</em></h1>
     <p class="hero-lead">Embedded hardware, signal processing and control systems — taking ideas from a block diagram to a working prototype.</p>
-    <div class="hero-actions"><a class="btn-primary" href="#work">Explore my work <span>↓</span></a><a class="text-link" href="#contact">Start a conversation <span>↗</span></a></div>
+    <div class="hero-actions"><a class="btn-primary" href="#work">Explore my projects <span>↓</span></a><a class="text-link" href="#contact">Start a conversation <span>↗</span></a></div>
     <div class="hero-stats"><div><strong>04+</strong><span>engineering domains</span></div><div><strong>UCT</strong><span>Electrical & Computer Engineering</span></div><div><strong>∞</strong><span>things still to build</span></div></div>
   </div>
   <div class="hero-right hero-photo-wrap">
-    <div class="hero-photo">
-      <img src="assets/hero-landscape.svg" alt="Cape Town and the surrounding landscape">
-      <div class="hero-image-top"><span>ENGINEER / BUILDER</span><span>EB</span></div>
-      <div class="hero-photo-overlay hero-location-card">
-        <span>33°57′31″ S</span>
-        <strong>18°27′36″ E</strong>
-        <div class="hero-photo-points"><span>Cape Town, South Africa</span><span>Embedded systems / signals / control</span></div>
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+    <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+    <div class="profile-card">
+      <div class="profile-card-inner">
+        <img class="profile-image" src="assets/profile.jpg" alt="Portrait of Emmanuel Basua" onerror="this.style.display='none';this.parentElement.classList.add('profile-missing')">
+        <div class="profile-fallback" aria-hidden="true"><strong>EB</strong><span>ADD PROFILE PHOTO</span><small>assets/profile.jpg</small></div>
+        <div class="profile-badge">ENGINEER / BUILDER</div>
       </div>
-      <div class="hero-corner">ELECTRICAL & COMPUTER ENGINEERING / 2026</div>
     </div>
+    <div class="hero-coordinate"><span>33°57′31″ S</span><span>18°27′36″ E</span></div>
   </div>
 </section>
 
@@ -75,7 +76,7 @@
 </section>
 
 <section id="work" class="section-wrap work">
-  <div class="section-head"><div><span class="section-num">02</span><h2>Selected <em>work.</em></h2></div><p>Projects where software meets electronics, and theory has to survive contact with hardware.</p></div>
+  <div class="section-head"><div><span class="section-num">02</span><h2>Selected <em>projects.</em></h2></div><p>Projects where software meets electronics, and theory has to survive contact with hardware.</p></div>
   <div class="project-grid">
     <article class="project featured" data-project="mouse">
       <div class="project-art art-mouse"><div class="maze"></div><div class="mouse-chip">MICROMOUSE<br><b>01</b></div><span class="art-label">CLOSED LOOP / SENSOR FUSION</span></div>
@@ -89,20 +90,20 @@
       <div class="project-details project-details-standard">
         <div class="detail-tabs"><button class="active" data-tab="overview">Overview</button><button data-tab="role">My role</button><button data-tab="approach">Technical approach</button><button data-tab="outcomes">Outcome</button></div>
         <div class="detail-copy project-detail-copy">
-          <div class="detail-pane active" data-pane="overview"><p>Designed a robust acoustic communication concept for an autonomous underwater vehicle operating where GPS is unavailable.</p></div>
-          <div class="detail-pane" data-pane="role"><p>Worked through waveform design, modulation choices and receiver-side signal processing for reliable low-bandwidth communication.</p></div>
-          <div class="detail-pane" data-pane="approach"><ul><li>Chirp-based signalling for time-frequency robustness</li><li>FSK modulation and demodulation</li><li>DSP filtering and detection</li><li>Embedded C implementation considerations</li></ul></div>
-          <div class="detail-pane" data-pane="outcomes"><p>A practical communication architecture balancing range, bandwidth and detection reliability.</p></div>
+          <div class="detail-pane active" data-pane="overview"><p>Developed the signal-processing subsystem for an under-ice Acoustic Positioning System designed to localise an AUV without requiring it to surface for GPS. The subsystem generates binary chirp packets, conditions the received acoustic signal, detects packet arrival and decodes payload data for timing-based localisation.</p><p>The design was shaped by the realities of Antarctic acoustic channels: multipath reflections, falling SNR with range, limited usable bandwidth and the need to process packets on embedded hardware in real time.</p></div>
+          <div class="detail-pane" data-pane="role"><p>Responsible for the signal-processing subsystem: modulation design, waveform parameterisation, MATLAB validation, analogue receive filtering, embedded firmware architecture and the packet-detection/timestamping pipeline.</p><p>The work focused on turning the communication concept into a chain that could be implemented and tested on real embedded hardware.</p></div>
+          <div class="detail-pane" data-pane="approach"><ul><li>Binary linear chirp-FSK: upchirps and downchirps encode digital symbols across a 1–5 kHz band</li><li>MATLAB waveform and BER testing, with a 0.3 s chirp, Tukey windowing and spectral pre-emphasis</li><li>Sallen–Key Butterworth analogue band-pass filter to suppress out-of-band noise before the ADC</li><li>Matched filtering for packet detection, followed by GCC-PHAT / IR-GCC-PHAT correlation for arrival-time estimation</li><li>Real-time C firmware architecture targeting embedded acquisition and decoding without offloading computation</li></ul></div>
+          <div class="detail-pane" data-pane="outcomes"><p>The design validated the core communication chain in simulation and hardware tests: chirp energy was confined to the target band with zero BER in the reported noisy trials, timing correlation met the required accuracy in simulation, and the analogue filter achieved more than 20 dB out-of-band attenuation.</p><p>The resulting architecture provides a practical path from acoustic waveform design to timestamp generation for TDOA-based AUV positioning.</p></div>
         </div>
       </div></div></article>
     <article class="project"><div class="project-art art-rocket"><div class="rocket-line">↑</div><div class="telemetry">ALT 482m<br>BAT 3.82V<br>GPS LOCK</div><span class="art-label">LIVE TELEMETRY</span></div><div class="project-content"><div class="project-top"><span>ROCKET / GROUND STATION</span><b>03</b></div><h3>Rocket Telemetry</h3><p>ESP32 flight transmitter, Raspberry Pi receiver and a live Flask dashboard for telemetry.</p><div class="tags"><span>ESP32</span><span>Raspberry Pi</span><span>Flask</span></div><button class="project-link expand-project" type="button" aria-expanded="false">View project <span>↘</span></button>
       <div class="project-details project-details-standard">
         <div class="detail-tabs"><button class="active" data-tab="overview">Overview</button><button data-tab="role">My role</button><button data-tab="approach">Technical approach</button><button data-tab="outcomes">Outcome</button></div>
         <div class="detail-copy project-detail-copy">
-          <div class="detail-pane active" data-pane="overview"><p>A lightweight flight telemetry stack that captures onboard data, sends it to a ground station and turns the stream into a live operator dashboard.</p></div>
-          <div class="detail-pane" data-pane="role"><p>Built the embedded-to-ground data path and the web dashboard used to monitor the vehicle during testing.</p></div>
-          <div class="detail-pane" data-pane="approach"><ul><li>ESP32 telemetry transmitter</li><li>Raspberry Pi ground receiver</li><li>Python / Flask dashboard</li><li>Live status and sensor visualisation</li></ul></div>
-          <div class="detail-pane" data-pane="outcomes"><p>A clear end-to-end telemetry workflow that made flight data visible and actionable during testing.</p></div>
+          <div class="detail-pane active" data-pane="overview"><p>Designed an end-to-end telemetry system around an ESP32 flight computer and a portable Raspberry Pi 4 ground station. The system acquires flight and status data, packages it into compact telemetry messages and presents the stream through a browser-based dashboard.</p><p>The project treats observability as part of the engineering system: live sensor values, GPS information, flight state, charts and logged data are available from the same ground-station stack for testing and post-flight analysis.</p></div>
+          <div class="detail-pane" data-pane="role"><p>Designed and integrated the telemetry path from the embedded flight electronics through wireless transport and MQTT messaging to the Raspberry Pi ground station and Flask dashboard.</p><p>Also worked on the data schema, real-time dashboard behaviour, logging pipeline and the system interfaces needed to make the project usable as a portable field ground station.</p></div>
+          <div class="detail-pane" data-pane="approach"><ul><li>ESP32 flight computer publishes sensor, GPS and system-status telemetry as compact JSON messages</li><li>Raspberry Pi 4 acts as the portable ground-station computer, Wi-Fi access point and MQTT host</li><li>Mosquitto provides the message layer, with the ground application subscribing across the rocket telemetry topic tree</li><li>Flask and Socket.IO push live updates to connected browsers without manual page refreshes</li><li>Dashboard surfaces live altitude, velocity, acceleration, orientation, battery data, GPS mapping, flight events and rolling history</li><li>Incoming telemetry is logged for later analysis, with the architecture designed to start automatically for field use</li></ul></div>
+          <div class="detail-pane" data-pane="outcomes"><p>A complete embedded-to-browser telemetry workflow with a clearly defined message architecture and portable ground station. The system was designed to handle concurrent messaging, live visualisation and data logging while keeping the operator interface simple during testing.</p><p>The project established a reusable avionics/ground-station foundation that can be extended as additional sensors and flight features are integrated.</p></div>
         </div>
       </div></div></article>
   </div>
